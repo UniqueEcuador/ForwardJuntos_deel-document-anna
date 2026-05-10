@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ForwardJuntos — Gespreksvoorbereiding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#3C3489;--p-m:#7F77DD;--p-l:#EEEDFE;
+  --t:#085041;--t-m:#1D9E75;--t-l:#E1F5EE;
+  --a:#633806;--a-m:#BA7517;--a-l:#FFF3DC;
+  --c:#D85A30;--c-l:#FAECE7;
+  --tx:#1a1a18;--mu:#5F5E5A;
+  --bd:rgba(26,26,24,0.11);--bg:#faf9f6;--wh:#fff;
+  --r:12px;--rs:8px;
+  --serif:'Lora',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--tx);line-height:1.7;min-height:100vh}
+
+/* ── LAYOUT ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(250,249,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);padding:0 2rem}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;height:52px;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-logo{font-family:var(--serif);font-size:15px;color:var(--p);font-weight:500;white-space:nowrap;margin-right:auto}
+.nav-link{font-size:12px;font-weight:500;color:var(--mu);text-decoration:none;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav-link:hover,.nav-link.active{color:var(--p);border-bottom-color:var(--p-m)}
+
+.wrap{max-width:900px;margin:0 auto;padding:2.5rem 2rem 5rem}
+
+/* ── HERO ── */
+.hero{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--bd)}
+.hero-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mu);margin-bottom:.4rem}
+.hero-title{font-family:var(--serif);font-size:clamp(26px,4vw,40px);font-weight:400;line-height:1.2;color:var(--tx);margin-bottom:.5rem}
+.hero-title em{color:var(--p-m);font-style:italic}
+.hero-sub{font-size:14px;color:var(--mu);font-weight:300;max-width:560px}
+.hero-meta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+.hero-chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;background:var(--p-l);color:var(--p)}
+
+/* ── SECTION ── */
+.section{margin-bottom:3rem;scroll-margin-top:70px}
+.sec-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-bottom:.4rem;display:flex;align-items:center;gap:6px}
+.sec-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--p-m);flex-shrink:0}
+.sec-label.teal::before{background:var(--t-m)}
+.sec-label.amber::before{background:var(--a-m)}
+.sec-label.coral::before{background:var(--c)}
+.sec-h2{font-family:var(--serif);font-size:clamp(18px,2.5vw,24px);font-weight:400;color:var(--tx);margin-bottom:.75rem;line-height:1.3}
+.sec-h2 em{color:var(--p-m);font-style:italic}
+.sec-intro{font-size:14px;color:var(--mu);font-weight:300;line-height:1.75;margin-bottom:1.25rem;max-width:600px}
+
+/* ── CARDS ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:1rem}
+.card{background:var(--wh);border:1px solid var(--bd);border-radius:var(--r);padding:1.1rem 1.25rem;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:rgba(127,119,221,.35);box-shadow:0 3px 16px rgba(127,119,221,.08)}
+.card-label{font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.card-title{font-size:15px;font-weight:500;color:var(--tx);margin-bottom:6px;line-height:1.3}
+.card-body{font-size:13px;color:var(--mu);line-height:1.65;font-weight:300}
+.card-accent{border-top:3px solid var(--p-m)}
+.card-accent.teal{border-top-color:var(--t-m)}
+.card-accent.amber{border-top-color:var(--a-m)}
+
+/* ── CALLOUT ── */
+.callout{border-radius:var(--rs);padding:1rem 1.25rem;margin:.75rem 0;font-size:13px;line-height:1.7;font-weight:300}
+.callout-p{background:var(--p-l);border-left:3px solid var(--p-m);color:var(--p)}
+.callout-t{background:var(--t-l);border-left:3px solid var(--t-m);color:var(--t)}
+.callout-a{background:var(--a-l);border-left:3px solid var(--a-m);color:var(--a)}
+.callout-c{background:var(--c-l);border-left:3px solid var(--c);color:var(--c)}
+.callout strong{font-weight:600}
+
+/* ── TABLE ── */
+.tbl-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--bd);margin-bottom:1rem}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{background:var(--bg);padding:9px 14px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);border-bottom:1px solid var(--bd)}
+tbody tr:hover{background:var(--bg)}
+td{padding:9px 14px;border-bottom:1px solid var(--bd);color:var(--mu);vertical-align:top;line-height:1.55;font-weight:300}
+td:first-child{font-weight:500;color:var(--tx)}
+tbody tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:10px;font-weight:600;border-radius:20px;padding:2px 9px;letter-spacing:.04em}
+.tag-p{background:var(--p-l);color:var(--p)}
+.tag-t{background:var(--t-l);color:var(--t)}
+.tag-a{background:var(--a-l);color:var(--a)}
+.tag-c{background:var(--c-l);color:var(--c)}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--bd)}
+.tl-item{position:relative;margin-bottom:1rem}
+.tl-item::before{content:'';position:absolute;left:-21px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bd);border:2px solid var(--bg)}
+.tl-item.evenement::before{background:var(--p-m);border-color:var(--p-l)}
+.tl-item.buffer::before{background:var(--t-m);border-color:var(--t-l)}
+.tl-item.tech::before{background:var(--a-m);border-color:var(--a-l)}
+.tl-item.product::before{background:var(--c);border-color:var(--c-l)}
+.tl-item.funding::before{background:#1D9E75;border-color:var(--t-l)}
+.tl-item.marketing::before{background:var(--p-m);border-color:var(--p-l)}
+.tl-item.business::before{background:var(--a-m);border-color:var(--a-l)}
+.tl-date{font-size:11px;color:var(--mu);margin-bottom:2px}
+.tl-text{font-size:13px;color:var(--tx);font-weight:400;line-height:1.5}
+
+/* ── Q&A accordion ── */
+.qa-item{border:1px solid var(--bd);border-radius:var(--r);margin-bottom:8px;overflow:hidden;transition:border-color .2s}
+.qa-item.open{border-color:rgba(127,119,221,.4)}
+.qa-btn{width:100%;text-align:left;background:var(--wh);border:none;padding:.9rem 1.1rem;font-family:var(--sans);font-size:14px;font-weight:500;color:var(--tx);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+.qa-btn:hover{background:var(--bg)}
+.qa-icon{flex-shrink:0;width:18px;height:18px;color:var(--mu);transition:transform .25s var(--ease)}
+.qa-item.open .qa-icon{transform:rotate(180deg)}
+.qa-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s var(--ease)}
+.qa-item.open .qa-body{grid-template-rows:1fr}
+.qa-inner{overflow:hidden;border-top:1px solid var(--bd)}
+.qa-content{padding:.9rem 1.1rem;font-size:13px;color:var(--mu);line-height:1.7;font-weight:300}
+
+/* ── PDF embed ── */
+.pdf-wrap{border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;background:var(--wh)}
+.pdf-header{padding:.875rem 1.25rem;background:var(--p-l);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.pdf-title{font-size:13px;font-weight:500;color:var(--p)}
+.pdf-dl{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--p);text-decoration:none;padding:6px 14px;border:1px solid rgba(63,52,137,.3);border-radius:var(--rs);background:var(--wh);transition:background .15s}
+.pdf-dl:hover{background:var(--p-l)}
+iframe.pdf-frame{width:100%;height:600px;border:none;display:block}
+.pdf-fallback{display:none;padding:2rem;text-align:center;font-size:13px;color:var(--mu)}
+
+/* ── ENERGY METER ── */
+.energy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1rem}
+.energy-card{background:var(--wh);border:1px solid var(--bd);border-radius:var(--rs);padding:.875rem 1rem;text-align:center}
+.energy-pct{font-size:22px;font-weight:500;color:var(--p-m);line-height:1.1;margin-bottom:4px}
+.energy-label{font-size:11px;color:var(--mu);font-weight:300;line-height:1.4}
+
+/* ── FOOTER ── */
+.footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--bd);font-size:11px;color:var(--mu);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.footer a{color:var(--p-m);text-decoration:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:560px){
+  .wrap{padding:1.5rem 1rem 4rem}
+  .cards{grid-template-columns:1fr}
+  .energy-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Paginanavigatie">
+  <div class="nav-inner">
+    <span class="nav-logo">ForwardJuntos</span>
+    <a class="nav-link" href="#profiel">Profiel</a>
+    <a class="nav-link" href="#projecten">Projecten</a>
+    <a class="nav-link" href="#mijlpalen">Mijlpalen</a>
+    <a class="nav-link" href="#inkomsten">Inkomsten</a>
+    <a class="nav-link" href="#gesprek">Gesprek Anna</a>
+    <a class="nav-link" href="#document">Document</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO — gevuld via JS -->
+  <div class="hero" id="hero">
+    <p class="hero-label">Gespreksvoorbereiding · privé werkdocument</p>
+    <h1 class="hero-title">Van laesie naar <em>inzicht</em> —<br>en van inzicht naar impact.</h1>
+    <p class="hero-sub" id="hero-sub">Laden…</p>
+    <div class="hero-meta" id="hero-meta"></div>
+  </div>
+
+  <!-- PROFIEL -->
+  <section class="section" id="profiel">
+    <p class="sec-label">Wie ik ben</p>
+    <h2 class="sec-h2" id="profiel-title">Laden…</h2>
+    <div class="cards" id="profiel-cards"></div>
+
+    <p class="sec-label amber" style="margin-top:1.25rem">Energiebudget per week</p>
+    <div class="energy-grid" id="energy-grid"></div>
+
+    <div class="callout callout-p" id="filosofie-block"></div>
+  </section>
+
+  <!-- PROJECTEN -->
+  <section class="section" id="projecten">
+    <p class="sec-label teal">Wat ik bouw</p>
+    <h2 class="sec-h2">Twee samenhangende projecten</h2>
+    <div id="projecten-list"></div>
+  </section>
+
+  <!-- MIJLPALEN -->
+  <section class="section" id="mijlpalen">
+    <p class="sec-label amber">Planning</p>
+    <h2 class="sec-h2">Mijlpalen <em>2026 – 2027</em></h2>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- INKOMSTEN -->
+  <section class="section" id="inkomsten">
+    <p class="sec-label coral">Verdienmodel</p>
+    <h2 class="sec-h2">Drie inkomstenlagen — <em>gefaseerd</em></h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>Naam</th><th>Type</th>
+            <th>Jaar 1</th><th>Jaar 2</th><th>Startvoorwaarde</th>
+          </tr>
+        </thead>
+        <tbody id="inkomsten-rows"></tbody>
+      </table>
+    </div>
+    <div class="callout callout-a">
+      <strong>Wennink-logica:</strong> eerst valideren, dan automatiseren, dan pas uitbesteden.
+      Subsidie is geen uitbesteding — het koopt tijd zodat ik het werk zelf kan doen.
+    </div>
+  </section>
+
+  <!-- GESPREK ANNA -->
+  <section class="section" id="gesprek">
+    <p class="sec-label">Gesprek met Anna</p>
+    <h2 class="sec-h2">Voorbereiding — <em>wat ik zoek</em></h2>
+    <div id="gesprek-zoek" class="callout callout-p" style="margin-bottom:1.25rem"></div>
+
+    <p class="sec-label" style="margin-bottom:.75rem">Mijn vragen aan Anna</p>
+    <div id="anna-vragen" class="cards" style="margin-bottom:1.5rem"></div>
+
+    <p class="sec-label" style="margin-bottom:.75rem">Vragen die ik verwacht — en mijn eerlijke antwoorden</p>
+    <div id="qa-list"></div>
+  </section>
+
+  <!-- PDF DOCUMENT -->
+  <section class="section" id="document">
+    <p class="sec-label teal">Introductiedocument</p>
+    <h2 class="sec-h2">Deel-document voor Anna</h2>
+    <p class="sec-intro">Één pagina — direct stuurbaar als Anna om meer achtergrond vraagt.</p>
+
+    <div class="pdf-wrap">
+      <div class="pdf-header">
+        <span class="pdf-title" id="pdf-label">ForwardJuntos — Introductiedocument · Dominique Hermans · Mei 2026</span>
+        <a class="pdf-dl" href="docs/deel-document-anna.pdf" download>
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+      <iframe
+        class="pdf-frame"
+        id="pdf-frame"
+        src="docs/deel-document-anna.pdf"
+        title="ForwardJuntos introductiedocument voor Anna"
+      ></iframe>
+      <div class="pdf-fallback" id="pdf-fallback">
+        <p>PDF kan niet inline worden weergegeven in deze browser.<br>
+        <a href="docs/deel-document-anna.pdf" target="_blank">Open de PDF in een nieuw tabblad →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <span id="footer-contact">Laden…</span>
+    <span id="footer-updated"></span>
+  </footer>
+
+</div><!-- /.wrap -->
+
+<script>
+/* ══════════════════════════════════════════
+   ForwardJuntos GitHub Pages — main.js
+   Laadt data.json en rendert alle secties
+══════════════════════════════════════════ */
+
+const LAAG_TAGS = ['tag-p','tag-t','tag-a'];
+const LAAG_CALLS = ['callout-p','callout-t','callout-a'];
+
+function el(tag, cls, html){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(html !== undefined) e.innerHTML = html;
+  return e;
+}
+
+function formatDate(iso){
+  const d = new Date(iso);
+  return d.toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+}
+
+async function init(){
+  let data;
+  try {
+    const r = await fetch('data.json');
+    if(!r.ok) throw new Error('fetch failed');
+    data = await r.json();
+  } catch(e) {
+    document.getElementById('hero-sub').textContent =
+      'Kon data.json niet laden. Zorg dat het bestand in dezelfde map staat als index.html.';
+    return;
+  }
+
+  renderHero(data);
+  renderProfiel(data.profiel);
+  renderProjecten(data.projecten);
+  renderTimeline(data.mijlpalen);
+  renderInkomsten(data.inkomstenmodel);
+  renderGesprek(data.gesprek_anna);
+  renderFooter(data.meta);
+  initNav();
+  initPdf();
+}
+
+function renderHero(data){
+  document.title = data.meta.title;
+  const sub = document.getElementById('hero-sub');
+  sub.textContent = data.profiel.fase;
+
+  const meta = document.getElementById('hero-meta');
+  [
+    data.profiel.diagnose,
+    data.profiel.locatie,
+    'Fase: opbouw 2026',
+  ].forEach(txt => {
+    const chip = el('span','hero-chip', txt);
+    meta.appendChild(chip);
+  });
+}
+
+function renderProfiel(p){
+  document.getElementById('profiel-title').innerHTML =
+    `${p.naam} — <em>${p.rol}</em>`;
+
+  const cards = document.getElementById('profiel-cards');
+  [
+    { label:'Diagnose', title: p.diagnose, body: p.locatie },
+    { label:'Fase', title: 'Opbouw 2026', body: p.fase },
+    { label:'Motto', title: `"${p.motto}"`, body: '' },
+  ].forEach((c,i) => {
+    const accents = ['card-accent','card-accent teal','card-accent amber'];
+    const card = el('div', `card ${accents[i]}`);
+    card.innerHTML = `<p class="card-label">${c.label}</p>
+      <p class="card-title">${c.title}</p>
+      ${c.body ? `<p class="card-body">${c.body}</p>` : ''}`;
+    cards.appendChild(card);
+  });
+
+  const eg = document.getElementById('energy-grid');
+  Object.entries(p.energiebudget).forEach(([k,v]) => {
+    const label = k.replace(/_/g,' ');
+    const card = el('div','energy-card');
+    card.innerHTML = `<div class="energy-pct">${v}</div>
+      <div class="energy-label">${label}</div>`;
+    eg.appendChild(card);
+  });
+
+  const fb = document.getElementById('filosofie-block');
+  fb.innerHTML = `<strong>Kader — niet onderhandelbaar:</strong><br>` +
+    p.filosofie.map(f => `→ ${f}`).join('<br>');
+}
+
+function renderProjecten(projecten){
+  const wrap = document.getElementById('projecten-list');
+  const clsMap = {
+    'forwardjuntos': '',
+    'coreflow': 'teal',
+    'ms-repen': 'amber'
+  };
+
+  projecten.forEach(pr => {
+    const cls = clsMap[pr.id] || '';
+    const card = el('div',`card card-accent ${cls}`);
+    card.style.marginBottom = '12px';
+
+    let inner = `<p class="card-label">${pr.type}</p>
+      <p class="card-title">${pr.naam}${pr.url ? ` — <a href="${pr.url}" target="_blank" rel="noopener" style="color:var(--p-m);text-decoration:none">${pr.url.replace('https://','')}</a>` : ''}</p>
+      <p class="card-body">${pr.omschrijving}</p>`;
+
+    if(pr.klaar){
+      inner += `<p class="card-label" style="margin-top:.75rem">Klaar</p>` +
+        pr.klaar.map(k => `<p class="card-body" style="margin-bottom:2px">✓ ${k}</p>`).join('');
+    }
+    if(pr.technisch_fundament){
+      inner += `<p class="card-label" style="margin-top:.75rem">Technisch fundament</p>` +
+        pr.technisch_fundament.map(k => `<p class="card-body" style="margin-bottom:2px">→ ${k}</p>`).join('');
+    }
+    if(pr.partners){
+      inner += `<p class="card-label" style="margin-top:.75rem">Lokale partners</p>`;
+      pr.partners.forEach(pt => {
+        inner += `<p class="card-body" style="margin-bottom:2px">
+          <strong>${pt.naam}</strong> (${pt.locatie}) — ${pt.bijdrage}</p>`;
+      });
+    }
+    if(pr.status){
+      inner += `<p class="card-body" style="margin-top:.5rem">
+        <span class="tag tag-t">Status: ${pr.status}</span></p>`;
+    }
+
+    card.innerHTML = inner;
+    wrap.appendChild(card);
+  });
+}
+
+function renderTimeline(mijlpalen){
+  const tl = document.getElementById('timeline');
+  mijlpalen.forEach(m => {
+    const item = el('div', `tl-item ${m.type}`);
+    item.innerHTML = `<p class="tl-date">${formatDate(m.datum)}</p>
+      <p class="tl-text">${m.event}</p>`;
+    tl.appendChild(item);
+  });
+}
+
+function renderInkomsten(lagen){
+  const tbody = document.getElementById('inkomsten-rows');
+  lagen.forEach((l,i) => {
+    const tr = el('tr');
+    tr.innerHTML = `<td><span class="tag ${LAAG_TAGS[i]}">${l.laag}</span></td>
+      <td>${l.naam}</td>
+      <td>${l.type}</td>
+      <td>${l.omzet_jaar1}</td>
+      <td>${l.omzet_jaar2}</td>
+      <td style="font-size:12px">${l.startvoorwaarde}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderGesprek(g){
+  document.getElementById('gesprek-zoek').innerHTML =
+    `<strong>Wat ik zoek:</strong> ${g.wat_ik_zoek}`;
+
+  const av = document.getElementById('anna-vragen');
+  g.mijn_vragen_aan_anna.forEach((v,i) => {
+    const card = el('div','card card-accent');
+    card.innerHTML = `<p class="card-label">Vraag ${i+1}</p>
+      <p class="card-body">"${v}"</p>`;
+    av.appendChild(card);
+  });
+
+  const qa = document.getElementById('qa-list');
+  g.verwachte_vragen_van_anna.forEach((item,i) => {
+    const wrap = el('div','qa-item');
+    wrap.innerHTML = `
+      <button class="qa-btn" aria-expanded="false" aria-controls="qa-body-${i}">
+        <span>${item.vraag}</span>
+        <svg class="qa-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="qa-body" id="qa-body-${i}" role="region">
+        <div class="qa-inner">
+          <div class="qa-content">${item.antwoord}</div>
+        </div>
+      </div>`;
+    qa.appendChild(wrap);
+
+    wrap.querySelector('.qa-btn').addEventListener('click', () => {
+      const open = wrap.classList.toggle('open');
+      wrap.querySelector('.qa-btn').setAttribute('aria-expanded', open);
+    });
+  });
+}
+
+function renderFooter(meta){
+  document.getElementById('footer-contact').innerHTML =
+    `<a href="mailto:${meta.contact.email}">${meta.contact.email}</a> &nbsp;·&nbsp;
+     <a href="${meta.contact.website}" target="_blank">${meta.contact.website.replace('https://','')}</a> &nbsp;·&nbsp;
+     Via <a href="${meta.contact.via_url}" target="_blank">${meta.contact.via}</a>`;
+  document.getElementById('footer-updated').textContent =
+    `Laatste update: ${meta.updated} · v${meta.version}`;
+}
+
+function initNav(){
+  const links = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+        if(active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin:'-50% 0px -50% 0px' });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+}
+
+function initPdf(){
+  const frame = document.getElementById('pdf-frame');
+  const fallback = document.getElementById('pdf-fallback');
+  frame.addEventListener('error', () => {
+    frame.style.display = 'none';
+    fallback.style.display = 'block';
+  });
+}
+
+init();
+</script>
+</body>
+</html>
