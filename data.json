@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "ForwardJuntos — Gespreksvoorbereiding",
+    "owner": "Dominique Hermans",
+    "updated": "2026-05-10",
+    "version": "1.2",
+    "contact": {
+      "email": "hello@forwardjuntos.nl",
+      "website": "https://forwardjuntos.eu",
+      "via": "Stanny Goffin / Turing Tactics",
+      "via_url": "https://turing-tactics.eu"
+    }
+  },
+
+  "profiel": {
+    "naam": "Dominique Hermans",
+    "rol": "Oprichter ForwardJuntos",
+    "diagnose": "MS (PPMS/RRMS)",
+    "locatie": "Heerlen, Limburg — Nederland ↔ Ecuador",
+    "fase": "Opbouw 2026 — bewust geen KvK, geen team, geen haast",
+    "motto": "Vooruit, samen — Forward Juntos.",
+    "filosofie": [
+      "Eerst valideren, dan automatiseren, dan pas uitbesteden",
+      "Geen grote investering vóór bewezen vraag",
+      "Privacy-by-design (GDPR-native)",
+      "Stoprecht altijd, zonder uitleg"
+    ],
+    "energiebudget": {
+      "gezondheid_herstel": "40%",
+      "dochter_relatie": "30%",
+      "business": "20%",
+      "buffer": "10%"
+    }
+  },
+
+  "projecten": [
+    {
+      "id": "forwardjuntos",
+      "naam": "ForwardJuntos",
+      "url": "https://forwardjuntos.eu",
+      "type": "kennisplatform",
+      "omschrijving": "Vertaalt neurologische wetenschap naar begrijpelijk, visueel inzicht voor mensen met MS. Kern: interactieve 'Laesie → Zenuwbaan → Functie → Klacht → Inzicht' flow.",
+      "expansie": "Ecuador / Latijns-Amerika",
+      "status": "live",
+      "klaar": [
+        "Website live met accordion-flow (5 stappen, alle links)",
+        "Interactieve MS-symptomenkaart (brein-functies pagina)",
+        "Marktanalyse 2026 (investeerdersrapport)",
+        "Bedrijfsplan Q2 2026 – Q2 2027",
+        "Strategisch document: sensormatrix, inkomstenmodel, cognitieve baseline"
+      ],
+      "wetenschappelijke_basis": "Netherlands Neurogenomics Database — Amsterdam UMC"
+    },
+    {
+      "id": "coreflow",
+      "naam": "CoreFlow",
+      "type": "wearable systeem",
+      "omschrijving": "Modulair, draagbaar systeem: koeling + houdingsondersteuning + biometrische monitoring voor mensen met energiegevoelige aandoeningen.",
+      "status": "V1 zonder elektronica",
+      "sensor_integratie": "Q4 2026",
+      "technisch_fundament": [
+        "Python Health Simulator V1 (user_state.py)",
+        "Energie-adviesfunctie op basis van real-time state",
+        "Uhthoff-detectie via temperatuurgevoeligheid variabele"
+      ],
+      "partners": [
+        { "naam": "DSM Dyneema", "locatie": "Heerlen", "bijdrage": "Materiaal & versterking" },
+        { "naam": "TracXon", "locatie": "Eindhoven", "bijdrage": "Printed electronics & sensoren" },
+        { "naam": "Qorium", "locatie": "Maastricht", "bijdrage": "Duurzame buitenlaag" }
+      ]
+    },
+    {
+      "id": "ms-repen",
+      "naam": "MS-repen",
+      "type": "fysiek product",
+      "omschrijving": "Energierepen ontwikkeld voor mensen met MS — klein batch, storytelling verpakking.",
+      "status": "testbatch Q3 2026",
+      "omzet_verwacht": "Q4 2026"
+    }
+  ],
+
+  "mijlpalen": [
+    { "datum": "2026-05-25", "event": "KlimmentegenMS — Mont Ventoux (Bédoin)", "type": "evenement" },
+    { "datum": "2026-05-29", "event": "LimburgsMooiste 110 km", "type": "evenement" },
+    { "datum": "2026-06-30", "event": "Bufferzone — familie & reflectie", "type": "buffer" },
+    { "datum": "2026-07-31", "event": "Accordion-flow live + MS-reep testbatch", "type": "product" },
+    { "datum": "2026-09-30", "event": "CoreFlow V1 Python lokaal werkend", "type": "tech" },
+    { "datum": "2026-10-31", "event": "LinkedIn-serie 5 posts + digitale gids af", "type": "marketing" },
+    { "datum": "2026-12-31", "event": "Subsidieaanvraag ingediend (Nationaal MS Fonds / Horizon Europe)", "type": "funding" },
+    { "datum": "2027-03-31", "event": "CoreFlow beta voor 10–20 testgebruikers", "type": "tech" },
+    { "datum": "2027-06-30", "event": "Eerste B2B-gesprek zorginstelling + Ecuador-strategie op papier", "type": "business" }
+  ],
+
+  "inkomstenmodel": [
+    {
+      "laag": 1,
+      "naam": "Kennisproducten",
+      "type": "passief",
+      "producten": ["Digitale gids 'Van diagnose naar inzicht'", "Visuele zenuwbaankaarten", "Mini-cursus MS-energiebeheer"],
+      "omzet_jaar1": "€50–150/mnd",
+      "omzet_jaar2": "Schaalbaar",
+      "startvoorwaarde": "Website accordion live + 50 bezoekers/maand"
+    },
+    {
+      "laag": 2,
+      "naam": "Platformwaarde",
+      "type": "semi-passief",
+      "producten": ["Geanonimiseerde data-inzichten voor MS-fondsen", "CoreFlow gebruikerspatronen als marktbewijs"],
+      "omzet_jaar1": "€0",
+      "omzet_jaar2": "€500–2K/mnd",
+      "startvoorwaarde": "10+ beta-gebruikers CoreFlow"
+    },
+    {
+      "laag": 3,
+      "naam": "Consulting & co-creatie",
+      "type": "actief",
+      "producten": ["Kennispartnerschap zorginstellingen", "Patient-perspectief voor TracXon / MS-centra", "Visuele vertaalslag neurowetenschap"],
+      "omzet_jaar1": "€0",
+      "omzet_jaar2": "€200–2K/mnd",
+      "startvoorwaarde": "Bewezen tractie Q2 2027"
+    }
+  ],
+
+  "gesprek_anna": {
+    "context": "Introductie via Stanny Goffin (Turing Tactics). Anna Valadzko — Leadera Pro (leaderapro.com). 25+ jaar C-level coaching, AI-powered leadership development.",
+    "wat_ik_zoek": "Perspectief op de overgang van opbouwfase naar eerste invloed — zonder energie te verspillen aan de verkeerde deuren. Geen pitch-feedback, geen validatie.",
+    "mijn_vragen_aan_anna": [
+      "Hoe herken jij het moment waarop iemand klaar is om de stap van opbouw naar invloed te zetten — en wat blokkeert dat meestal?",
+      "Jij werkt met mensen die van executie naar strategische invloed gaan. Waar zit het verschil voor een solopreneur met een energiebudget?",
+      "Als je één ding zou aanpassen aan hoe ik mijzelf nu presenteer — wat zou dat zijn?"
+    ],
+    "verwachte_vragen_van_anna": [
+      {
+        "vraag": "Waarom heb je nog geen KvK-registratie?",
+        "antwoord": "Bewuste keuze. Registratie volgt als de eerste euro omzet of subsidie bewijst dat de markt er is. Eerder formaliseren kost energie zonder extra waarde."
+      },
+      {
+        "vraag": "Wat heb je nodig van mij?",
+        "antwoord": "Één perspectief dat ik zelf niet heb. Geen stappenplan. Ik zoek iemand die mij een vraag stelt die ik mezelf nog niet gesteld heb."
+      },
+      {
+        "vraag": "Hoe ga je dit financieren?",
+        "antwoord": "Drie gelaagde stromen: kennisproducten (passief), platformwaarde (semi-passief), consulting (actief). Subsidie als brug, B2B SaaS als schaalhefboom — maar pas als de basis staat."
+      },
+      {
+        "vraag": "Kun je dit volhouden met MS?",
+        "antwoord": "Ja — omdat het model erop gebouwd is. Remote-first, automatisch Pauze-Protocol bij energie < 4/10, geen vaste verplichtingen in fase 1."
+      },
+      {
+        "vraag": "Wat maakt ForwardJuntos uniek?",
+        "antwoord": "Wetenschappelijke basis + levende ervaring + visuele vertaalslag. Mijn context is het product. Moeilijk te kopiëren omdat het authentiek is, niet omdat het technisch complex is."
+      }
+    ]
+  },
+
+  "documenten": [
+    { "bestand": "docs/deel-document-anna.pdf", "omschrijving": "Introductie-PDF voor Anna — 1 pagina, direct stuurbaar" },
+    { "bestand": "docs/bedrijfsplan-2026.pdf", "omschrijving": "Volledig bedrijfsplan Q2 2026 – Q2 2027" },
+    { "bestand": "docs/marktanalyse-2026.pdf", "omschrijving": "Marktanalyse ForwardJuntos / CoreFlow (investeerdersrapport)" }
+  ]
+}
